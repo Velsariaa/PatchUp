@@ -17,49 +17,7 @@ export default function SignIn({ navigation }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [focusField, setFocusField] = useState('');
-  const [modalVisible, setModalVisible] = useState(false);
-  const [modalMessage, setModalMessage] = useState('');
-  const [isSuccess, setIsSuccess] = useState(false);
-
-  const signIn = async () => {
-    try {
-      // Sign in the user
-      await signInUser(email, password);
-      console.log('User signed in!!');
   
-      // Wait for 2 seconds to show the modal before navigating
-      setTimeout(async () => {
-        // Check if the user has a PIN set by querying Firestore
-        const userDoc = await getDoc(doc(firestore, 'user', email));
-  
-        if (userDoc.exists()) {
-          const userData = userDoc.data();
-          const hasPin = userData.Pin; // Assuming 'Pin' field exists in user document
-  
-          // Navigate based on PIN status
-          if (hasPin) {
-            // If user has a PIN, navigate to HomePage
-            navigation.navigate('HomePage');
-          } else {
-            // If user does not have a PIN, navigate to PinSetup
-            navigation.navigate('PinSetup');
-          }
-        } else {
-          console.error('User not found in Firestore.');
-        }
-      }, 0); 
-    } catch (error) {
-      console.error('Error signing in:', error.message);
-      setErrorMessage(error.message);
-      setModalMessage(error.message);
-      setIsSuccess(false);
-      setModalVisible(true);
-    }
-  };
-  
-  
-  
-
   return (
     <SafeAreaView style={styles.innerContainer}>
     <KeyboardAvoidingView
@@ -103,8 +61,7 @@ export default function SignIn({ navigation }) {
           onBlur={() => setFocusField('')}
         />
 
-        {/* Login Button */}
-        <TouchableOpacity style={styles.loginbtn} onPress={signIn}>
+        <TouchableOpacity style={styles.loginbtn}>
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
 
