@@ -12,6 +12,7 @@ import {
   ScrollView,
 } from 'react-native';
 import styles from '../styles/signUpPageStyles';
+import { Keyboard, TouchableWithoutFeedback } from 'react-native';
 
 export default function SignUp() {
   const [firstName, setFirstName] = useState('');
@@ -40,6 +41,7 @@ export default function SignUp() {
   };
 
   return (
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       style={styles.container}
@@ -144,5 +146,6 @@ export default function SignUp() {
         </SafeAreaView>
       </ScrollView>
     </KeyboardAvoidingView>
+    </TouchableWithoutFeedback>
   );
 }
