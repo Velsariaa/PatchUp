@@ -22,23 +22,7 @@ export default function SignUp() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-
   const [focusField, setFocusField] = useState('');
-
-  const signUp = async () => {
-    if (password !== confirmPassword) {
-      setErrorMessage("Passwords do not match.");
-      return;
-    }
-
-    try {
-      // Use the signUpUser function from authService
-      const userCredential = await signUpUser(email, firstName, lastName, mobile, password);
-      console.log('🚀 User account created:', userCredential.user.email);
-    } catch (error) {
-      setErrorMessage(error.message);
-    }
-  };
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -48,8 +32,6 @@ export default function SignUp() {
     >
       <ScrollView>
         <SafeAreaView style={styles.innerContainer}>
-
-
           <Image
             source={require('../assets/gabanklogo.png')}
             style={styles.logo}
@@ -135,7 +117,7 @@ export default function SignUp() {
             onBlur={() => setFocusField('')}
           />
 
-          <TouchableOpacity style={styles.loginbtn} onPress={signUp}>
+          <TouchableOpacity style={styles.loginbtn}>
             <Text style={styles.buttonText}>Sign Up</Text>
           </TouchableOpacity>
 
