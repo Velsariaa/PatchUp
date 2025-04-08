@@ -50,19 +50,6 @@ const HomePage = ({ navigation }) => {
             </TouchableOpacity>
             </View>
 
-            {/* Bottom row centered */}
-            <View style={styles.centeredRow}>
-            <TouchableOpacity style={styles.optionBox} onPress={() => navigation.navigate("DreamScreen")}>
-                <Image source={require("../assets/cloud1.png")} style={styles.optionIcon} />
-                <Text style={styles.optionText}>Dream</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity style={styles.optionBox} onPress={() => navigation.navigate("ChatBot")}>
-                <Image source={require("../assets/assist.png")} style={styles.optionIcon} />
-                <Text style={styles.optionText}>Assist</Text>
-            </TouchableOpacity>
-            </View>
-
         </View>
       </KeyboardAvoidingView>
 
