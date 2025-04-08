@@ -11,7 +11,7 @@ import {
   Platform,
 } from "react-native";
 import Header from "../components/header";
-import BottomNavBar from "../components/bottomNavbar";
+// import BottomNavBar from "../components/bottomNavbar";
 
 // Utility function to return the correct icon based on report type
 const getReportIcon = (type) => {
@@ -104,7 +104,7 @@ const ReportDashboard = ({ navigation }) => {
         </View>
       </KeyboardAvoidingView>
 
-      <BottomNavBar activeTab={activeTab} setActiveTab={setActiveTab} />
+      {/* <BottomNavBar activeTab={activeTab} setActiveTab={setActiveTab} /> */}
     </SafeAreaView>
   );
 };
