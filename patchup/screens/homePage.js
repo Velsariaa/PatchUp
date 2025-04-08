@@ -15,7 +15,7 @@ import {
 } from "react-native";
 import Header from "../components/header";
 
-import BottomNavBar from "../components/bottomNavBar";
+import BottomNavBar from "../components/bottomNavbar";
 
 const screenWidth = Dimensions.get("window").width;
 
