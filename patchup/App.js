@@ -11,19 +11,21 @@ import SignUp from './screens/signUp';
 import SignIn from './screens/signIn';
 import HomePage from './screens/homePage';
 import ReportDashboard from './screens/reportDashboard';
+import AddReport from './screens/addReport';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="HomePage">
+      <Stack.Navigator initialRouteName="SplashPage">
         <Stack.Screen name="SplashPage" component={SplashPage} options={{ headerShown: false }} />
         <Stack.Screen name="LandingPage" component={LandingPage} options={{ headerShown: false }} />
         <Stack.Screen name="SignUp" component={SignUp} options={{ headerShown: false }}/>
         <Stack.Screen name="SignIn" component={SignIn} options={{ headerShown: false }}/>
         <Stack.Screen name="HomePage" component={HomePage} options={{ headerShown: false }}/>
         <Stack.Screen name="ReportDashboard" component={ReportDashboard} options={{ headerShown: false }}/>
+        <Stack.Screen name="AddReport" component={AddReport} options={{ headerShown: false }}/>
         {/* Add other screens here */}
         
       </Stack.Navigator>
